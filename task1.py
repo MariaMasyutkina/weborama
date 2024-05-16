@@ -40,10 +40,18 @@ print("Id, которые встречаются только 3 раза:")
 for item in id_dict.items():
     print(item[0]) if item[1] == 3 else next
 
-print("Частота повторений уникальных Id:")
-for item in id_dict.items():
-    print(f"{item[0]}: {item[1]}")
 
+print("Частота повторений уникальных Id:")
+seq = set()
+for value in id_dict.values():
+    seq.add(value)
+
+seq = dict.fromkeys(seq, 0)
+
+for item in id_dict.items():
+    seq.update({item[1]: seq.get(item[1]) + item[1]})
+
+print(seq)
 
 # удаление распакованной папки
 shutil.rmtree(cur_dir + "\\zip_" + file_name)
