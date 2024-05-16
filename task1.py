@@ -49,7 +49,7 @@ for value in id_dict.values():
 seq = dict.fromkeys(seq, 0)
 
 for item in id_dict.items():
-    seq.update({item[1]: seq.get(item[1]) + item[1]})
+    seq.update({item[1]: seq.get(item[1]) + 1})
 
 print(seq)
 
